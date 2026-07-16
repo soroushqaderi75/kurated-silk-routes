@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ShopRouteImport } from './routes/shop'
 import { Route as ReturnsRouteImport } from './routes/returns'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -37,6 +38,11 @@ import { Route as AuthenticatedAdminProductsIdEditRouteImport } from './routes/_
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -169,6 +175,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/account': typeof AuthenticatedAccountRoute
   '/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -194,6 +201,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/account': typeof AuthenticatedAccountRoute
   '/brand/$slug': typeof BrandSlugRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/returns': typeof ReturnsRoute
   '/shop': typeof ShopRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
   '/_authenticated/account': typeof AuthenticatedAccountRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRouteWithChildren
@@ -247,6 +256,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/returns'
     | '/shop'
+    | '/sitemap.xml'
     | '/terms'
     | '/account'
     | '/admin'
@@ -272,6 +282,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/returns'
     | '/shop'
+    | '/sitemap.xml'
     | '/terms'
     | '/account'
     | '/brand/$slug'
@@ -297,6 +308,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/returns'
     | '/shop'
+    | '/sitemap.xml'
     | '/terms'
     | '/_authenticated/account'
     | '/_authenticated/admin'
@@ -324,6 +336,7 @@ export interface RootRouteChildren {
   PrivacyRoute: typeof PrivacyRoute
   ReturnsRoute: typeof ReturnsRoute
   ShopRoute: typeof ShopRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
   BrandSlugRoute: typeof BrandSlugRoute
   CategorySlugRoute: typeof CategorySlugRoute
@@ -337,6 +350,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -564,6 +584,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrivacyRoute: PrivacyRoute,
   ReturnsRoute: ReturnsRoute,
   ShopRoute: ShopRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
   BrandSlugRoute: BrandSlugRoute,
   CategorySlugRoute: CategorySlugRoute,
@@ -572,13 +593,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
