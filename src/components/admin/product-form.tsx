@@ -98,8 +98,8 @@ export function ProductForm({ initial }: { initial?: any }) {
     }
     setBusy(true);
     const { error } = initial
-      ? await supabase.from("products").update(parsed.data).eq("id", initial.id)
-      : await supabase.from("products").insert(parsed.data);
+      ? await supabase.from("products").update(parsed.data as any).eq("id", initial.id)
+      : await supabase.from("products").insert(parsed.data as any);
     setBusy(false);
     if (error) toast.error(error.message);
     else {
