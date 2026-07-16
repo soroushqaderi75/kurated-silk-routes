@@ -22,7 +22,7 @@ function AdminOrders() {
   });
 
   async function update(id: string, patch: Record<string, unknown>) {
-    const { error } = await supabase.from("orders").update(patch).eq("id", id);
+    const { error } = await supabase.from("orders").update(patch as any).eq("id", id);
     if (error) toast.error(error.message);
     else {
       toast.success("Updated");
