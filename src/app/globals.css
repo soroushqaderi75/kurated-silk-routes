@@ -1,49 +1,70 @@
 @import "tailwindcss";
 
-
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
-
-html,
-body {
-
-  margin:0;
-
-  padding:0;
-
-  background:#F7F4EE;
-
+html {
+  margin: 0;
+  padding: 0;
+  background: #f7f4ee;
+  scroll-behavior: smooth;
 }
-
 
 body {
-
-  font-family:var(--font-persian);
-
+  margin: 0;
+  padding: 0;
+  background: #f7f4ee;
+  font-family: var(--font-persian);
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
 
+button {
+  cursor: pointer;
+}
 
 .miwani-fashion {
-
-  font-family:var(--font-fashion);
-
+  font-family: var(--font-fashion);
 }
-
 
 .miwani-persian {
-
-  font-family:var(--font-persian);
-
+  font-family: var(--font-persian);
 }
-.miwani-story-font{
 
-font-family:var(--font-miwani);
+.miwani-story-font {
+  font-family: var(--font-miwani);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
 
-font-weight:400;
+.miwani-product-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overscroll-behavior-inline: contain;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
-letter-spacing:0.02em;
+.miwani-product-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
 
+.miwani-product-scroll img,
+.miwani-product-scroll a {
+  -webkit-user-drag: none;
+}
+
+@media (hover: none) {
+  .miwani-product-scroll {
+    cursor: auto;
+  }
 }
