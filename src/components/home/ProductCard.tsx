@@ -60,16 +60,16 @@ export default function ProductCard({
           تصویر محصول
         </div>
 
-        {/* لایه تیره روی تصویر */}
+        {/* لایه روشن روی تصویر هنگام Hover */}
         <div
           className="
             pointer-events-none
             absolute
             inset-0
-            bg-black/0
+            bg-white/0
             transition-colors
             duration-500
-            group-hover:bg-black/25
+            group-hover:bg-white/35
           "
         />
 
@@ -125,7 +125,6 @@ export default function ProductCard({
               </svg>
             </button>
 
-            {/* Tooltip علاقه‌مندی */}
             <div
               className="
                 pointer-events-none
@@ -225,7 +224,6 @@ export default function ProductCard({
               </svg>
             </button>
 
-            {/* Tooltip سبد خرید */}
             <div
               className="
                 pointer-events-none
@@ -268,19 +266,19 @@ export default function ProductCard({
           </div>
         </div>
 
-        {/* اطلاعات محصول هنگام Hover */}
+        {/* اطلاعات محصول بدون کادر */}
         <div
           className="
             pointer-events-none
             absolute
-            inset-0
+            inset-x-0
+            bottom-0
             z-10
-            flex
             translate-y-3
-            flex-col
-            justify-end
-            p-4
-            text-white
+            px-4
+            pb-4
+            pt-16
+            text-black
             opacity-0
             transition-all
             duration-500
@@ -290,57 +288,68 @@ export default function ProductCard({
         >
           <div
             className="
-              space-y-2
-              border-t
-              border-white/40
-              pt-4
-              text-[10px]
-              text-white/90
+              space-y-2.5
+              text-[11.5px]
+              text-black
+              drop-shadow-[0_1px_3px_rgba(255,255,255,0.95)]
+              sm:text-[12px]
             "
           >
             <div className="flex items-center justify-between">
-              <span className="text-white/65">
+              <span className="text-black/65">
                 برند
               </span>
 
-              <span dir="ltr">
+              <span
+                dir="ltr"
+                className="font-medium text-black"
+              >
                 {product.brand}
               </span>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="text-white/65">
+              <span className="text-black/65">
                 سایز
               </span>
 
-              <span>{product.size}</span>
+              <span className="font-medium text-black">
+                {product.size}
+              </span>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="text-white/65">
+              <span className="text-black/65">
                 وضعیت
               </span>
 
-              <span>{product.condition}</span>
+              <span className="font-medium text-black">
+                {product.condition}
+              </span>
             </div>
           </div>
 
           <span
             className="
-              mt-4
+              mt-3
               flex
               items-center
               justify-center
               gap-2
               border-t
-              border-white/25
+              border-black/20
               pt-3
-              text-[10px]
-              text-white/90
+              text-[11.5px]
+              font-medium
+              text-black
+              sm:text-[12px]
             "
           >
             مشاهده محصول
-            <span aria-hidden="true">←</span>
+
+            <span aria-hidden="true">
+              ←
+            </span>
           </span>
         </div>
       </div>

@@ -9,7 +9,7 @@ export type ProductData = {
 
 export type ProductSectionData = {
   title: string;
-  description: string;
+  description?: string;
 };
 
 export const productSections: ProductSectionData[] = [
@@ -19,19 +19,15 @@ export const productSections: ProductSectionData[] = [
   },
   {
     title: "زنانه",
-    description: "مجموعه‌ای منتخب از پوشاک زنانه",
   },
   {
     title: "مردانه",
-    description: "مجموعه‌ای منتخب از پوشاک مردانه",
   },
   {
     title: "تازه رسیده‌ها",
-    description: "جدیدترین محصولاتی که به میوانی اضافه شده‌اند",
   },
   {
     title: "پربازدیدترین‌ها",
-    description: "محصولاتی که بیشترین توجه را دریافت کرده‌اند",
   },
 ];
 
@@ -102,13 +98,47 @@ export const sampleProducts: ProductData[] = [
   },
 ];
 
-export const brands = [
-  "ZARA",
-  "MANGO",
-  "H&M",
-  "NIKE",
-  "ADIDAS",
-  "LEVI’S",
-  "PULL&BEAR",
-  "BERSHKA",
+export type BrandData = {
+  name: string;
+  slug: string;
+  logo: string;
+};
+
+export const brands: BrandData[] = [
+  {
+    name: "Nike",
+    slug: "nike",
+    logo: "/brands/nike.svg",
+  },
+  {
+    name: "Adidas",
+    slug: "adidas",
+    logo: "/brands/adidas.svg",
+  },
+  {
+    name: "Zara",
+    slug: "zara",
+    logo: "/brands/zara.svg",
+  },
+
+  {
+    name: "H&M",
+    slug: "hm",
+    logo: "/brands/hm.svg",
+  },
+  {
+    name: "Levi’s",
+    slug: "levis",
+    logo: "/brands/levis.svg",
+  },
+  {
+    name: "Bershka",
+    slug: "bershka",
+    logo: "/brands/bershka.svg",
+  },
+    {
+    name: "Mango",
+    slug: "mango",
+    logo: "/brands/mango.svg",
+  },
 ];

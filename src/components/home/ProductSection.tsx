@@ -6,8 +6,10 @@ import {
   useState,
 } from "react";
 import { motion } from "framer-motion";
+
 import ProductCard from "@/components/home/ProductCard";
 import ViewAllCard from "@/components/home/ViewAllCard";
+
 import {
   sampleProducts,
   type ProductSectionData,
@@ -24,8 +26,7 @@ export default function ProductSection({
     startScrollLeft: 0,
   });
 
-  const [isDragging, setIsDragging] =
-    useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const handlePointerDown = (
     event: PointerEvent<HTMLDivElement>,
@@ -81,9 +82,7 @@ export default function ProductSection({
       container &&
       container.hasPointerCapture(event.pointerId)
     ) {
-      container.releasePointerCapture(
-        event.pointerId,
-      );
+      container.releasePointerCapture(event.pointerId);
     }
   };
 
@@ -91,7 +90,7 @@ export default function ProductSection({
     <motion.section
       initial={{
         opacity: 0,
-        y: 28,
+        y: 24,
       }}
       whileInView={{
         opacity: 1,
@@ -102,7 +101,7 @@ export default function ProductSection({
         amount: 0.12,
       }}
       transition={{
-        duration: 0.65,
+        duration: 0.6,
         ease: "easeOut",
       }}
       dir="rtl"
@@ -110,9 +109,9 @@ export default function ProductSection({
         border-b
         border-black/10
         bg-[#F7F4EE]
-        py-12
-        sm:py-14
-        lg:py-16
+        py-8
+        sm:py-10
+        lg:py-12
       "
     >
       <div
@@ -136,18 +135,20 @@ export default function ProductSection({
           {title}
         </h2>
 
-        <p
-          className="
-            mt-2
-            max-w-xl
-            text-[11px]
-            leading-6
-            text-neutral-500
-            sm:text-xs
-          "
-        >
-          {description}
-        </p>
+        {description && (
+          <p
+            className="
+              mt-2
+              max-w-xl
+              text-[11px]
+              leading-6
+              text-neutral-500
+              sm:text-xs
+            "
+          >
+            {description}
+          </p>
+        )}
       </div>
 
       <div
@@ -163,7 +164,6 @@ export default function ProductSection({
         className={`
           miwani-product-scroll
           mx-auto
-          mt-7
           flex
           max-w-[1600px]
           flex-row
@@ -172,10 +172,10 @@ export default function ProductSection({
           overflow-x-auto
           px-5
           pb-1
-          sm:mt-9
           sm:gap-5
           sm:px-8
           lg:px-14
+          ${description ? "mt-7 sm:mt-8" : "mt-5 sm:mt-6"}
           ${
             isDragging
               ? "cursor-grabbing"
