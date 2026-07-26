@@ -2,57 +2,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { Search } from "lucide-react";
 
+import MegaMenu from "@/components/layout/MegaMenu";
 import HeaderActions from "@/components/layout/HeaderActions";
 
-const categories = [
-  {
-    label: "زنانه",
-    href: "/women",
-  },
-  {
-    label: "مردانه",
-    href: "/men",
-  },
-  {
-    label: "کیف",
-    href: "/categories/bags",
-  },
-  {
-    label: "کفش",
-    href: "/categories/shoes",
-  },
-  {
-    label: "اکسسوری",
-    href: "/categories/accessories",
-  },
-  {
-    label: "تازه رسیده‌ها",
-    href: "/new-arrivals",
-  },
-  {
-    label: "پیشنهادهای ویژه",
-    href: "/offers",
-  },
-  {
-    label: "برندها",
-    href: "/brands",
-  },
-];
 
 export default function Navbar() {
+
   return (
+
     <header
-  dir="rtl"
-  className="
-    sticky
-    top-0
-    z-50
-    w-full
-    bg-white
-    text-black
-  "
->
+      dir="rtl"
+      className="
+        sticky
+        top-0
+        z-50
+        w-full
+        bg-white
+        text-black
+      "
+    >
+
+
       {/* Main Header */}
+
       <div
         className="
           mx-auto
@@ -67,7 +39,10 @@ export default function Navbar() {
           lg:px-12
         "
       >
+
+
         {/* Logo */}
+
         <Link
           href="/"
           aria-label="MIWANI"
@@ -77,6 +52,7 @@ export default function Navbar() {
             items-center
           "
         >
+
           <Image
             src="/brand/miwani.svg"
             alt="MIWANI"
@@ -90,10 +66,13 @@ export default function Navbar() {
               lg:w-[165px]
             "
           />
+
         </Link>
 
 
+
         {/* Search */}
+
         <form
           action="/search"
           role="search"
@@ -105,6 +84,7 @@ export default function Navbar() {
             lg:max-w-[520px]
           "
         >
+
           <div
             className="
               flex
@@ -122,11 +102,13 @@ export default function Navbar() {
               focus-within:bg-white
             "
           >
+
             <Search
               size={16}
               strokeWidth={1.5}
               className="text-black/50"
             />
+
 
             <input
               name="q"
@@ -138,21 +120,31 @@ export default function Navbar() {
                 flex-1
                 bg-transparent
                 text-[12px]
-                text-black
                 outline-none
                 placeholder:text-black/40
               "
             />
+
           </div>
+
         </form>
 
 
+
+
         {/* Actions */}
+
         <HeaderActions />
+
+
       </div>
 
 
+
+
+
       {/* Mobile Search */}
+
       <div
         className="
           px-5
@@ -160,7 +152,9 @@ export default function Navbar() {
           md:hidden
         "
       >
+
         <form action="/search">
+
           <div
             className="
               flex
@@ -174,11 +168,13 @@ export default function Navbar() {
               px-4
             "
           >
+
             <Search
               size={15}
               strokeWidth={1.5}
               className="text-black/50"
             />
+
 
             <input
               name="q"
@@ -194,12 +190,20 @@ export default function Navbar() {
                 placeholder:text-black/40
               "
             />
+
           </div>
+
         </form>
+
       </div>
 
 
+
+
+
+
       {/* Categories */}
+
       <nav
         aria-label="دسته بندی"
         className="
@@ -208,6 +212,7 @@ export default function Navbar() {
           bg-white
         "
       >
+
         <div
           className="
             mx-auto
@@ -217,44 +222,230 @@ export default function Navbar() {
             items-center
             justify-center
             gap-7
-            overflow-x-auto
             px-5
             text-[11px]
             text-black/70
-            scrollbar-none
             lg:gap-9
           "
         >
-          {categories.map((category) => (
-            <Link
-              key={category.href}
-              href={category.href}
-              className="
-                relative
-                flex
-                h-full
-                shrink-0
-                items-center
-                transition-colors
-                duration-200
-                hover:text-black
-                after:absolute
-                after:bottom-0
-                after:right-0
-                after:h-px
-                after:w-0
-                after:bg-black
-                after:transition-all
-                duration-300
-                hover:after:w-full
-              "
-            >
-              {category.label}
-            </Link>
-          ))}
+
+
+
+          <MegaMenu
+            title="زنانه"
+            items={[
+              {
+                label:"تیشرت",
+                href:"/products?category=women-tshirt",
+              },
+              {
+                label:"پیراهن",
+                href:"/products?category=women-dress",
+              },
+              {
+                label:"شومیز و بلوز",
+                href:"/products?category=women-blouse",
+              },
+              {
+                label:"شلوار",
+                href:"/products?category=women-pants",
+              },
+              {
+                label:"دامن",
+                href:"/products?category=women-skirt",
+              },
+              {
+                label:"کت و ژاکت",
+                href:"/products?category=women-jacket",
+              },
+              {
+                label:"مانتو و پالتو",
+                href:"/products?category=women-coat",
+              },
+              {
+                label:"لباس مجلسی",
+                href:"/products?category=women-party",
+              },
+            ]}
+          />
+
+
+
+
+          <MegaMenu
+            title="مردانه"
+            items={[
+              {
+                label:"تیشرت",
+                href:"/products?category=men-tshirt",
+              },
+              {
+                label:"پیراهن",
+                href:"/products?category=men-shirt",
+              },
+              {
+                label:"پولوشرت",
+                href:"/products?category=men-polo",
+              },
+              {
+                label:"هودی و سویشرت",
+                href:"/products?category=men-hoodie",
+              },
+              {
+                label:"شلوار",
+                href:"/products?category=men-pants",
+              },
+              {
+                label:"کت و ژاکت",
+                href:"/products?category=men-jacket",
+              },
+              {
+                label:"کاپشن",
+                href:"/products?category=men-coat",
+              },
+            ]}
+          />
+
+
+
+
+
+          <MegaMenu
+            title="کیف"
+            items={[
+              {
+                label:"کیف دستی",
+                href:"/products?category=handbag",
+              },
+              {
+                label:"کیف دوشی",
+                href:"/products?category=shoulder-bag",
+              },
+              {
+                label:"کیف پول",
+                href:"/products?category=wallet",
+              },
+              {
+                label:"کوله پشتی",
+                href:"/products?category=backpack",
+              },
+              {
+                label:"کیف لپ‌تاپ",
+                href:"/products?category=laptop-bag",
+              },
+            ]}
+          />
+
+
+
+
+
+          <MegaMenu
+            title="کفش"
+            items={[
+              {
+                label:"کتانی",
+                href:"/products?category=sneakers",
+              },
+              {
+                label:"کفش رسمی",
+                href:"/products?category=formal-shoes",
+              },
+              {
+                label:"بوت",
+                href:"/products?category=boots",
+              },
+              {
+                label:"نیم‌بوت",
+                href:"/products?category=ankle-boots",
+              },
+              {
+                label:"صندل",
+                href:"/products?category=sandals",
+              },
+            ]}
+          />
+
+
+
+
+
+          <MegaMenu
+            title="اکسسوری"
+            items={[
+              {
+                label:"عینک",
+                href:"/products?category=glasses",
+              },
+              {
+                label:"ساعت",
+                href:"/products?category=watches",
+              },
+              {
+                label:"کمربند",
+                href:"/products?category=belts",
+              },
+              {
+                label:"کلاه",
+                href:"/products?category=hats",
+              },
+              {
+                label:"شال و روسری",
+                href:"/products?category=scarves",
+              },
+              {
+                label:"زیورآلات",
+                href:"/products?category=jewelry",
+              },
+            ]}
+          />
+
+
+
+
+
+          <Link
+            href="/new-arrivals"
+            className="
+              transition-colors
+              hover:text-black
+            "
+          >
+            تازه رسیده‌ها
+          </Link>
+
+
+
+          <Link
+            href="/offers"
+            className="
+              transition-colors
+              hover:text-black
+            "
+          >
+            پیشنهادهای ویژه
+          </Link>
+
+
+
+          <Link
+            href="/brands"
+            className="
+              transition-colors
+              hover:text-black
+            "
+          >
+            برندها
+          </Link>
+
+
+
         </div>
+
       </nav>
 
+
     </header>
+
   );
 }
