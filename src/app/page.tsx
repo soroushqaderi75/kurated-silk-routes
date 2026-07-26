@@ -1,14 +1,20 @@
 import Hero from "@/components/home/Hero";
 import ProductSection from "@/components/home/ProductSection";
 import BrandsSection from "@/components/home/BrandsSection";
+import Footer from "@/components/layout/Footer";
+
 import { productSections } from "@/data/home";
+
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-white">
+
       <Hero />
 
-      <div className="bg-[#F7F4EE]">
+
+      <div className="bg-white">
+
         {productSections.map((section) => (
           <ProductSection
             key={section.title}
@@ -17,8 +23,15 @@ export default function Home() {
           />
         ))}
 
+
         <BrandsSection />
+
+
       </div>
+
+
+      <Footer />
+
     </main>
   );
 }

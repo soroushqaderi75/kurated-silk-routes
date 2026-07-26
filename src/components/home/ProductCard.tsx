@@ -207,7 +207,7 @@ export default function ProductCard({
                 viewBox="0 0 24 24"
                 fill="none"
                 aria-hidden="true"
-                className="h-[16px] w-[16px]"
+                className="h-[18px] w-[18px] -scale-x-100"
               >
                 <path
                   d="M3 4h2l2.1 9.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 7H6"

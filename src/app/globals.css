@@ -7,14 +7,14 @@
 html {
   margin: 0;
   padding: 0;
-  background: #f7f4ee;
+  background: #ffffff;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: #f7f4ee;
+  background: #ffffff;
   font-family: var(--font-persian);
 }
 

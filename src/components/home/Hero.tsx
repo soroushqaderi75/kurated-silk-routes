@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
 
 export default function Hero() {
   return (
@@ -38,9 +37,6 @@ export default function Hero() {
         "
       />
 
-      <div className="absolute left-0 top-0 z-30 w-full">
-        <Navbar />
-      </div>
 
       <motion.div
         initial={{
