@@ -42,15 +42,16 @@ const categories = [
 export default function Navbar() {
   return (
     <header
-      dir="rtl"
-      className="
-        relative
-        z-50
-        w-full
-        bg-white
-        text-black
-      "
-    >
+  dir="rtl"
+  className="
+    sticky
+    top-0
+    z-50
+    w-full
+    bg-white
+    text-black
+  "
+>
       {/* Main Header */}
       <div
         className="
